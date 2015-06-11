@@ -7,12 +7,26 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @implementation AppDelegate
-
+@synthesize window;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    
+    application.applicationSupportsShakeToEdit= YES;
+    window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    ViewController *splashView = [[ViewController alloc]init];
+    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:splashView];
+    navigationController.navigationBar.tintColor = [UIColor greenColor];
+   
+    self.window.rootViewController = navigationController;
+    
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 							
@@ -26,6 +40,8 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

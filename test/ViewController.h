@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SupperViewController.h"
 
-@interface ViewController : UIViewController
+@protocol ClassBDelegate
+
+- (void)methodTwo:(NSString *)value;
+
+@end
+
+typedef void (^okBlock)(NSString *str);
+
+@interface ViewController : SupperViewController
+{
+    okBlock ok;
+}
+@property (strong,nonatomic) okBlock ok;
 
 @end
